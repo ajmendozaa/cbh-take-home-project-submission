@@ -1,0 +1,13 @@
+# Refactoring
+
+You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.js`](dpk.js) to make it easier to read and understand without changing its functionality. For this task, you should:
+
+1. Write unit tests to cover the existing functionality and ensure that your refactor doesn't break it. We typically use `jest`, but if you have another library you prefer, feel free to use it.
+2. Refactor the function to be as "clean" and "readable" as possible. There are many valid ways to define those words - use your own personal definitions, but be prepared to defend them. Note that we do like to use the latest JS language features when applicable.
+3. Write up a brief (~1 paragraph) explanation of why you made the choices you did and why specifically your version is more "readable" than the original.
+
+You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
+
+## Your Explanation Here
+
+My approach to refactoring this function was pretty simple. The first thing I looked over was the nested if/else statements. In my opinion, if we have less if/else statements the better because it improves simplicity and readability. Having said that, the first thing I did was refactor the if/else statements where it was possible, so I came up with the idea to having a ternary operation in the inner checks. Instead of having two if statements right after the other, I refactored the assignment for candidate to be done in a ternary operation. Just as I did with the assignment of candidate, I also refactored the way we checked and assisgned candidate based on the type of data. Instead of having an if/else I completely removed that and changed if to a simple ternary operation which checked whether candidate is of type string and assigns the value accordingly. I also initialized candidate at the beginning of the file to be an empty string in case no condition is met and the function returns an empty string instead of null because we expect a string to be returned. Finally, I also refactored the way the constants were declared. Instead of having multiple variables for constants we simply have a map of constants which we can add or remove constants as needed by our program. This makes it a lot simpler because we have all of our constants stored in one variable and adding/removing them is as easy as to call a .set() or delete() respectively and .get() to get whatever constant we need.
